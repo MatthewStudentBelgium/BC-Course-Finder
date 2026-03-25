@@ -13,6 +13,10 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
+app.get("/", (req, res) => {
+  res.send("BC CourseFinder backend is running.");
+});
+
 app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
