@@ -117,11 +117,19 @@ ${userMessage}
 
     res.json({ reply: response.text || "No reply generated." });
   } catch (error) {
-    console.error("FULL GEMINI ERROR:");
-    console.error(error);
+  console.error("FULL SERVER ERROR:");
+  console.error(error);
 
-    res.status(500).json({
-      reply: "Something went wrong on the server.",
+  if (error && error.message) {
+    console.error("Message:", error.message);
+  }
+
+  if (error && error.stack) {
+    console.error("Stack:", error.stack);
+  }
+
+  res.status(500).json({
+    reply: "Something went wrong on the server.",
     });
   }
 });
