@@ -10,7 +10,20 @@
   <div class="container">
     <h1>BC CourseFinder™</h1>
     <p class="subtitle">AI-led Career Guidance for Matric Students</p>
-
+<div class="quick-actions">
+  <button onclick="askQuickQuestion('What IT careers can I explore with Maths and Physical Science at Belgium Campus?')">
+    Careers with Maths + Physical Science
+  </button>
+  <button onclick="askQuickQuestion('Can I study IT at Belgium Campus with Math Literacy?')">
+    Math Literacy Guidance
+  </button>
+  <button onclick="askQuickQuestion('What is the difference between Bachelor of IT and Bachelor of Computing at Belgium Campus?')">
+    BIT vs BComp
+  </button>
+  <button onclick="askQuickQuestion('What is the Mathematics bridging course at Belgium Campus and when is it needed?')">
+  Maths Bridging Course
+</button>
+</div>
     <div id="chatbox" class="chatbox"></div>
 
     <div class="input-area">
@@ -21,8 +34,16 @@
       />
       <button onclick="sendMessage()">Send</button>
     </div>
+    
   </div>
+<div class="qr-container" onclick="openQR()">
+  <p>Scan to open on mobile</p>
+  <img src="qrcode.png" alt="QR Code">
+</div>
 
+<div id="qrModal" class="qr-modal" onclick="closeQR()">
+  <img src="qrcode.png" alt="QR Code Large">
+</div>
   <script src="script.js"></script>
 </body>
 </html>

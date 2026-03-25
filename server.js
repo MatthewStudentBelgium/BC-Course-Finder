@@ -45,9 +45,33 @@ app.post("/chat", async (req, res) => {
       "architect"
     ];
 
-    const isNonITQuestion = blockedKeywords.some(keyword =>
-      lowerMessage.includes(keyword)
-    );
+    const casualMessages = [
+  "hi",
+  "hello",
+  "hey",
+  "how are you",
+  "what's up"
+];
+
+const isCasual = casualMessages.some(msg =>
+  lowerMessage.includes(msg)
+);
+
+const isNonITQuestion = blockedKeywords.some(keyword =>
+  lowerMessage.includes(keyword)
+);
+
+if (isCasual) {
+  return res.json({
+    reply: "Hi! I can help you explore IT careers and study options at Belgium Campus. What would you like to know?"
+  });
+}
+
+if (isNonITQuestion) {
+  return res.json({
+    reply: "I specialize in IT careers and IT study guidance. Let me help you explore fields like Software Development, Data Science, Cybersecurity, or Networking."
+  });
+}
 
     if (isNonITQuestion) {
   console.log("Blocked non-IT question:", userMessage);
@@ -65,6 +89,7 @@ INSTITUTION FOCUS:
 - If the user asks about Belgium Campus qualifications, admission requirements, subject requirements, or career paths, answer using the knowledge base.
 - Do not invent qualifications that are not in the knowledge base.
 - If the user asks about a programme not listed, say that you can currently help with the listed Belgium Campus IT qualifications.
+- If the user asks about bridging courses, explain clearly using the knowledge base.
 
 STRICT RULES:
 - ONLY answer IT-related questions

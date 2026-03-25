@@ -53,8 +53,22 @@ async function sendMessage() {
   }
 }
 
+function askQuickQuestion(question) {
+  document.getElementById("userInput").value = question;
+  sendMessage();
+}
+
+
 document.getElementById("userInput").addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     sendMessage();
   }
 });
+
+function openQR() {
+  document.getElementById("qrModal").style.display = "flex";
+}
+
+function closeQR() {
+  document.getElementById("qrModal").style.display = "none";
+}

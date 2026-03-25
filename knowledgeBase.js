@@ -89,7 +89,21 @@ const knowledgeBase = {
       mathLit: [
         "Math Literacy is usually more limiting for degree entry",
         "Students may need to look at diploma routes or bridging options depending on requirements"
-      ]
+      ],
+      bridgingCourse: {
+  description: [
+    "A Mathematics bridging course is offered to students who do not meet the required Mathematics marks for degree programmes.",
+    "It helps improve mathematical skills needed for IT studies."
+  ],
+  requirements: [
+    "For Bachelor of IT (BIT): Minimum 50% in the bridging course",
+    "For Bachelor of Computing (BComp): Minimum 70% in the bridging course"
+  ],
+  purpose: [
+    "Allows students without sufficient Maths marks to still qualify for degree programmes",
+    "Strengthens logical thinking and problem-solving skills"
+  ]
+}
     }
   },
 
