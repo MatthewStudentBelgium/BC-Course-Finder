@@ -1,0 +1,115 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+/* TOP SECTION */
+
+.hero{
+    background: turquoise;
+    height:230px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* LOGO */
+
+.logo{
+    width:260px;
+    position:absolute;
+    top:10px;
+    left:20px;
+    z-index:3;
+}
+
+/* WHITE SHAPE */
+
+.white-shape{
+    width:500px;
+    height:80px;
+    background:white;
+
+    position:absolute;
+
+    bottom:15px;
+    left:-60px;
+
+    transform:skewX(-35deg);
+
+    z-index:1;
+}
+
+/* RED SHAPE */
+
+.triangle{
+    width:90px;
+    height:90px;
+
+    background:#d84d68;
+
+    position:absolute;
+
+    bottom:10px;
+    left:320px;
+
+    transform:rotate(45deg);
+
+    z-index:2;
+}
+
+/* BUTTON AREA */
+
+.portal-buttons{
+    width:500px;
+    margin:40px auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+/* FOOTER */
+footer{
+   color: gray;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow';
+  background-color: var(--bc-turquoise);
+  padding: 100px 200px;
+  box-shadow: 2px 2px rgba(0,0,0,0.2);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+}
+
+/* BUTTONS */
+
+button{
+    width:100%;
+    padding:20px;
+
+    border:none;
+
+    font-size:22px;
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.02);
+}
+
+.turquoise{
+    background: turquoise;
+}
+
+.pink{
+    background: maroon;
+}
+
+.dark{
+    background:#252838;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | BC CourseFinder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <a class="brand-link" href="coursefinder.html">BC CourseFinder</a>
+    <nav>
+      <a href="coursefinder.html">Home</a>
+      <a href="index.html">CourseFinder Chat</a>
+      <a href="studentDashboard.html">Student Hub</a>
+      <a href="createAccount.html">Create Account</a>
+      <a href="studentLogin.html" data-auth-link>Login</a>
+    </nav>
+    <div class="account-menu" data-account-menu>
+      <button class="account-button" type="button" data-account-toggle>Account</button>
+      <div class="account-dropdown">
+        <p>Logged in as<br><strong data-account-email>Guest</strong></p>
+        <a href="studentDashboard.html">Student Hub</a>
+        <button type="button" data-logout-button>Log out</button>
+      </div>
+    </div>
+  </header>
+  <div class="hero">
+    <a href="coursefinder.html">
+      <img src="turquiose bc logo.png" alt="Belgium Campus logo" class="logo">
+    </a>
+  </div>
+
+  <main class="dashboard-shell">
+    <section class="dashboard-header">
+      <div>
+        <p class="eyebrow">Student portal</p>
+        <h1>Belgium Campus guidance hub</h1>
+        <p class="subtitle">Signed in as <strong id="studentEmail">Logged-in student</strong></p>
+      </div>
+      <a class="secondary-action" href="index.html">Open CourseFinder chat</a>
+    </section>
+
+    <section class="dashboard-section">
+      <div class="section-heading">
+        <h2>APS qualification checker</h2>
+        <p>Enter your matric percentages to estimate which Belgium Campus study routes you should discuss with admissions.</p>
+      </div>
+
+      <form id="apsForm" class="aps-form">
+        <label>
+          English %
+          <input id="englishMark" data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Maths type
+          <select id="mathsType" required>
+            <option value="pure">Pure Mathematics</option>
+            <option value="literacy">Mathematical Literacy</option>
+          </select>
+        </label>
+
+        <label>
+          Maths %
+          <input id="mathsMark" data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Subject 3 %
+          <input data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Subject 4 %
+          <input data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Subject 5 %
+          <input data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Subject 6 %
+          <input data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <label>
+          Subject 7 %
+          <input data-aps-mark type="number" min="0" max="100" required>
+        </label>
+
+        <button type="submit">Check my options</button>
+      </form>
+
+      <div id="apsResult" class="aps-result">
+        <h3>Your APS result will appear here</h3>
+        <p>Final admission depends on Belgium Campus confirmation, your NSC endorsement and programme-specific requirements.</p>
+      </div>
+    </section>
+
+    <section class="dashboard-section">
+      <div class="section-heading">
+        <h2>Belgium Campus information</h2>
+        <p>Local information used by the app to guide student answers.</p>
+      </div>
+      <div id="campusInfo"></div>
+    </section>
+
+    <section class="dashboard-section compact-section">
+      <h2>Important admission notes</h2>
+      <ul>
+        <li>Diploma routes require an NSC endorsed for Diploma study.</li>
+        <li>Degree routes require an NSC endorsed for Degree study, plus 50% or more for English.</li>
+        <li>Bachelor degree routes require 50% or more for pure Mathematics, or the required Mathematics Bridging Course result.</li>
+        <li>The local APS checker is guidance only. Belgium Campus admissions must confirm final entry.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-copy">&copy; BC COURSE FINDER CODE 2026</p>
+    <div class="footer-socials">
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="X">
+      <img src="tiktok.png" alt="TikTok">
+      <img src="facebook.png" alt="Facebook">
+    </div>
+    <p class="footer-registration">Belgium Campus ITversity 1 NPC registered with the Department of Higher Education & Training as a private higher education institution under the Higher Education Act, 1997. Registration Certificate No 2003/HE08/001</p>
+  </footer>
+
+  <script src="knowledgeBase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

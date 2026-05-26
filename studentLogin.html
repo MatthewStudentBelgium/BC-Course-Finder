@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portal - Login</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <style>
+    /* ── YOUR EXISTING CSS ── */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .hero {
+      background: turquoise;
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 260px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      z-index: 3;
+    }
+
+    .white-shape {
+      width: 500px;
+      height: 80px;
+      background: white;
+      position: absolute;
+      bottom: 15px;
+      left: -60px;
+      transform: skewX(-35deg);
+      z-index: 1;
+    }
+
+    .triangle {
+      width: 90px;
+      height: 90px;
+      background: #d84d68;
+      position: absolute;
+      bottom: 10px;
+      left: 320px;
+      transform: rotate(45deg);
+      z-index: 2;
+    }
+
+    .portal-buttons {
+      width: 500px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    footer {
+      color: gray;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+      background-color: turquoise;
+      padding: 100px 200px;
+      box-shadow: 2px 2px rgba(0,0,0,0.2);
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      overflow: hidden;
+    }
+
+    button {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover { transform: scale(1.02); }
+
+    .turquoise { background: turquoise; }
+    .pink      { background: maroon; }
+    .dark      { background: #252838; }
+
+    .hero {
+      padding: 72px 40px 48px 40px;
+      height: 44px;
+      border-bottom-left-radius: 35px;
+      border-top-right-radius: 35px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      width: 300px;
+      top: 18px;
+      border-radius: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="top-nav">
+    <a class="brand-link" href="coursefinder.html">BC CourseFinder</a>
+    <nav>
+      <a href="coursefinder.html">Home</a>
+      <a href="index.html">CourseFinder Chat</a>
+      <a href="studentDashboard.html">Student Hub</a>
+      <a href="createAccount.html">Create Account</a>
+      <a href="studentLogin.html" data-auth-link>Login</a>
+    </nav>
+    <div class="account-menu" data-account-menu>
+      <button class="account-button" type="button" data-account-toggle>Account</button>
+      <div class="account-dropdown">
+        <p>Logged in as<br><strong data-account-email>Guest</strong></p>
+        <a href="studentDashboard.html">Student Hub</a>
+        <button type="button" data-logout-button>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <a href="coursefinder.html">
+      <img src="turquiose bc logo.png" alt="Belgium Campus logo" class="logo">
+    </a>
+  </div>
+
+  <!-- LOGIN FORM PLACED CORRECTLY HERE -->
+  <form id="loginForm" class="login-panel">
+    <h1>Student login</h1>
+    <p class="subtitle">Sign in to continue to the student guidance hub.</p>
+    <input type="email" id="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px;">
+    <input type="password" id="password" placeholder="Password" required style="width:100%; padding:10px; margin-bottom:10px;">
+    <button type="submit" class="turquoise">Login</button>
+    <p class="form-switch">No account yet? <a href="createAccount.html">Create one</a></p>
+    <p class="storage-note">Use the email and password created on this browser.</p>
+  </form>
+
+  <p id="message" style="text-align:center; font-weight:bold;"></p>
+
+  <footer class="site-footer">
+    <p class="footer-copy">&copy; BC COURSE FINDER CODE 2026</p>
+    <div class="footer-socials">
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="X">
+      <img src="tiktok.png" alt="TikTok">
+      <img src="facebook.png" alt="Facebook">
+    </div>
+    <p class="footer-registration">Belgium Campus ITversity 1 NPC registered with the Department of Higher Education & Training as a private higher education institution under the Higher Education Act, 1997. Registration Certificate No 2003/HE08/001</p>
+  </footer>
+
+  <!-- Your JS -->
+  <script src="knowledgeBase.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

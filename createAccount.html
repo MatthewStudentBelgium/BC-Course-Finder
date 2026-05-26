@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account | BC CourseFinder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <a class="brand-link" href="coursefinder.html">BC CourseFinder</a>
+    <nav>
+      <a href="coursefinder.html">Home</a>
+      <a href="index.html">CourseFinder Chat</a>
+      <a href="studentDashboard.html">Student Hub</a>
+      <a href="createAccount.html">Create Account</a>
+      <a href="studentLogin.html" data-auth-link>Login</a>
+    </nav>
+    <div class="account-menu" data-account-menu>
+      <button class="account-button" type="button" data-account-toggle>Account</button>
+      <div class="account-dropdown">
+        <p>Logged in as<br><strong data-account-email>Guest</strong></p>
+        <a href="studentDashboard.html">Student Hub</a>
+        <button type="button" data-logout-button>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <a href="coursefinder.html">
+      <img src="turquiose bc logo.png" alt="Belgium Campus logo" class="logo">
+    </a>
+  </div>
+
+  <form id="createAccountForm" class="login-panel">
+    <h1>Create account</h1>
+    <p class="subtitle">Create a local student profile for this browser.</p>
+
+    <label>
+      Full name
+      <input type="text" id="fullName" placeholder="Your full name" required>
+    </label>
+
+    <label>
+      Email
+      <input type="email" id="newEmail" placeholder="Email address" required>
+    </label>
+
+    <label>
+      Password
+      <input type="password" id="newPassword" placeholder="Password" required>
+    </label>
+
+    <label>
+      Confirm password
+      <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+    </label>
+
+    <button type="submit">Create account</button>
+    <p class="form-switch">Already have an account? <a href="studentLogin.html">Login</a></p>
+    <p class="storage-note">For this project demo, your account is saved locally in this browser.</p>
+    <p id="createAccountMessage" class="form-message"></p>
+  </form>
+
+  <footer class="site-footer">
+    <p class="footer-copy">&copy; BC COURSE FINDER CODE 2026</p>
+    <div class="footer-socials">
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="X">
+      <img src="tiktok.png" alt="TikTok">
+      <img src="facebook.png" alt="Facebook">
+    </div>
+    <p class="footer-registration">Belgium Campus ITversity 1 NPC registered with the Department of Higher Education & Training as a private higher education institution under the Higher Education Act, 1997. Registration Certificate No 2003/HE08/001</p>
+  </footer>
+
+  <script src="knowledgeBase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

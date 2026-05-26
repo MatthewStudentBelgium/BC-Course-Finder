@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BC CourseFinder&trade;</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <a class="brand-link" href="coursefinder.html">BC CourseFinder</a>
+    <nav>
+      <a href="coursefinder.html">Home</a>
+      <a href="index.html">CourseFinder Chat</a>
+      <a href="studentDashboard.html">Student Hub</a>
+      <a href="createAccount.html">Create Account</a>
+      <a href="studentLogin.html" data-auth-link>Login</a>
+    </nav>
+    <div class="account-menu" data-account-menu>
+      <button class="account-button" type="button" data-account-toggle>Account</button>
+      <div class="account-dropdown">
+        <p>Logged in as<br><strong data-account-email>Guest</strong></p>
+        <a href="studentDashboard.html">Student Hub</a>
+        <button type="button" data-logout-button>Log out</button>
+      </div>
+    </div>
+  </header>
+  <div class="hero">
+  <a href="coursefinder.html">
+    <img src="turquiose bc logo.png" alt="bc logo" class="logo">
+</a>
+  </div>
+  <div class="container">
+    <h1>CourseFinder&trade;</h1>
+    <p class="subtitle">AI-led Career Guidance for Matric Students</p>
+    <p><a class="dashboard-link" href="studentDashboard.html">Open student APS checker and Belgium Campus guide</a></p>
+<div class="quick-actions">
+  <button onclick="askQuickQuestion('What IT careers can I explore with Maths and Physical Science at Belgium Campus?')">
+    Careers with Maths + Physical Science
+  </button>
+  <button onclick="askQuickQuestion('Can I study IT at Belgium Campus with Math Literacy?')">
+    Math Literacy Guidance
+  </button>
+  <button onclick="askQuickQuestion('What is the difference between Bachelor of IT and Bachelor of Computing at Belgium Campus?')">
+    BIT vs BComp
+  </button>
+  <button onclick="askQuickQuestion('What is the Mathematics bridging course at Belgium Campus and when is it needed?')">
+  Maths Bridging Course
+</button>
+</div>
+    <div id="chatbox" class="chatbox"></div>
+
+    <div class="input-area">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Ask about IT careers at Belgium Campus..."
+      />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    
+  </div>
+<div class="qr-container" onclick="openQR()">
+  <p>Scan to open on mobile</p>
+  <img src="qrcode.png" alt="QR Code">
+</div>
+
+<div id="qrModal" class="qr-modal" onclick="closeQR()">
+  <img src="qrcode.png" alt="QR Code Large">
+</div>
+  <script src="knowledgeBase.js"></script>
+  <script src="script.js"></script>
+  <footer class="site-footer">
+    <p class="footer-copy">&copy; BC COURSE FINDER CODE 2026</p>
+    <div class="footer-socials">
+      <img src="instagram.png" alt="Instagram">
+      <img src="twitter.png" alt="X">
+      <img src="tiktok.png" alt="TikTok">
+      <img src="facebook.png" alt="Facebook">
+    </div>
+    <p class="footer-registration">Belgium Campus ITversity 1 NPC registered with the Department of Higher Education & Training as a private higher education institution under the Higher Education Act, 1997. Registration Certificate No 2003/HE08/001</p>
+  </footer>
+</body>
+</html>
