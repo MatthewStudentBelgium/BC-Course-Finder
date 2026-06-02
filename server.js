@@ -67,35 +67,48 @@ app.post("/chat", async (req, res) => {
 
     if (isCasual) {
       return res.json({
-        reply: "Hi! I can help you explore IT careers and study options at Belgium Campus. What would you like to know?"
+        reply:
+          "Hey 👋 I can help you explore IT courses, APS requirements, and study options at Belgium Campus. What would you like to know?"
       });
     }
 
     if (isNonITQuestion) {
-      console.log("Blocked non-IT question:", userMessage);
       return res.json({
         reply:
-          "I specialize in IT careers and IT study guidance. Let me help you explore fields like Software Development, Data Science, Cybersecurity, or Networking."
+          "I focus on IT careers only 🙂 I can help you with Software Development, Cybersecurity, Data Science, Networking, and study requirements at Belgium Campus."
       });
     }
 
-    const prompt = `
-You are BC CourseFinder™, an AI career guidance assistant for South African matric students.
+    /**
+     * 🔥 IMPROVED SYSTEM PROMPT (controls tone & length)
+     */
+    const systemMessage = `
+You are BC CourseFinder™, a friendly student advisor for Belgium Campus IT students in South Africa.
 
-INSTITUTION FOCUS:
-- Your guidance must be specifically focused on Belgium Campus iTversity in South Africa.
-- Use the knowledge base below as your main source of truth.
-- Do not invent qualifications not in the knowledge base.
+STYLE RULES:
+- Be VERY concise (max 5–8 lines)
+- Start with a direct answer (1–2 sentences max)
+- Only use bullet points if truly needed
+- Avoid textbook, lecture, or overly formal tone
+- Keep responses natural and conversational
+- Do NOT repeat information
+- If possible, keep answers under 6 lines total
 
-STRICT RULES:
-- ONLY answer IT-related questions
-- If NOT IT-related, respond with IT guidance message
-- Keep answers student-friendly and structured with bullet points
+SCOPE:
+- Only IT study guidance (Belgium Campus focus)
+- Use knowledge base for accuracy
+- Do not invent qualifications
+- Redirect non-IT questions back to IT fields
+`;
 
-BELGIUM CAMPUS KNOWLEDGE BASE:
-${JSON.stringify(knowledgeBase, null, 2)}
+    /**
+     * 🔥 CLEAN USER INPUT (no massive prompt dump)
+     */
+    const userPrompt = `
+Knowledge Base:
+${JSON.stringify(knowledgeBase)}
 
-USER QUESTION:
+User Question:
 ${userMessage}
 `;
 
@@ -104,25 +117,26 @@ ${userMessage}
       messages: [
         {
           role: "system",
-          content:
-            "You are BC CourseFinder™, an AI career guidance assistant for Belgium Campus IT students in South Africa."
+          content: systemMessage
         },
         {
           role: "user",
-          content: prompt
+          content: userPrompt
         }
-      ]
+      ],
+      temperature: 0.7
     });
 
-    res.json({
-      reply: response.choices[0].message.content || "No reply generated."
+    return res.json({
+      reply:
+        response.choices[0].message.content || "No reply generated."
     });
 
   } catch (error) {
     console.error("FULL SERVER ERROR:");
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       reply: "Something went wrong on the server."
     });
   }
